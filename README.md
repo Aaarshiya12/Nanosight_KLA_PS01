@@ -13,6 +13,9 @@ KLA 2026 — PS01
 </div>
 
 ---
+## Demo Video
+
+[Watch the NanoSight Demo Video](https://drive.google.com/file/d/139ZxGLpOCH66nSlQtybnwkKg9aFqUq9_/view?usp=sharing)
 
 ## Overview
 
@@ -380,5 +383,7 @@ The trained model achieved:
 **Team: NanoSight**
 
 **Arshiya Agarwal | Minal Pramod Borkar | Srujan Pratap Powar | Aadya Priyadarshi**
+
+
 
 </div>

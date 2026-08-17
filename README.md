@@ -13,6 +13,7 @@ KLA 2026 — PS01
 </div>
 
 ---
+
 ## Demo Video
 
 [Watch the NanoSight Demo Video](https://drive.google.com/file/d/139ZxGLpOCH66nSlQtybnwkKg9aFqUq9_/view?usp=sharing)
@@ -240,7 +241,10 @@ Inference performance was measured on an **NVIDIA Tesla T4 GPU** after GPU warm-
 ## Repository Structure
 
 ```text
-Arshiya_KLA_PS01/
+Nanosight_KLA_PS01/
+│
+├── models/
+│   └── kla_best_model.pt
 │
 ├── src/
 │   ├── train.py
@@ -255,6 +259,7 @@ Arshiya_KLA_PS01/
 │   └── KLA_real_restoration.png
 │
 ├── kla_best_model.pt
+├── run.py
 ├── requirements.txt
 └── README.md
 ```
@@ -303,15 +308,47 @@ kla_best_model.pt
 
 ## Evaluation / Inference
 
-Run the evaluation pipeline using:
+The submission provides a standalone evaluation entry point compatible with the KLA benchmark requirements.
+
+Run:
 
 ```bash
-python src/evaluate.py \
-    --input_dir /path/to/test/images \
-    --output_dir /path/to/restored/images
+python run.py <input-dir> <output-dir>
 ```
 
-The trained model restores degraded low-resolution inputs and produces reconstructed high-resolution outputs.
+The input directory should contain `.npy` degraded grayscale images.
+
+For each input file, the script:
+
+- loads the `.npy` input
+- runs inference using the trained model
+- produces a restored `.npy` output
+- preserves the input filename
+- creates the output directory if required
+
+Example:
+
+```bash
+python run.py test_input test_output
+```
+
+Input:
+
+```text
+test_input/
+├── 000001.npy
+└── 000002.npy
+```
+
+Output:
+
+```text
+test_output/
+├── 000001.npy
+└── 000002.npy
+```
+
+The restored outputs are grayscale arrays with the target resolution and values constrained to the range `[0, 1]`.
 
 ---
 
@@ -383,7 +420,5 @@ The trained model achieved:
 **Team: NanoSight**
 
 **Arshiya Agarwal | Minal Pramod Borkar | Srujan Pratap Powar | Aadya Priyadarshi**
-
-
 
 </div>

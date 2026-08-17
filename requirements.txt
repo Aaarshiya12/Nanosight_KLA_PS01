@@ -1,5 +1,5 @@
-torch>=2.0
-numpy>=1.24
-opencv-python-headless>=4.8
-scikit-image>=0.21
-matplotlib>=3.7
+torch==2.11.0+cu128
+numpy==2.0.2
+opencv-python-headless==5.0.0.93
+scikit-image==0.25.2
+matplotlib==3.10.0
